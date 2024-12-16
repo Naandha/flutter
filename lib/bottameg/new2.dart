@@ -16,13 +16,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Home(),
+      home: const Home(data: [],),
     );
   }
 }
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  const Home({super.key, required List<Map> data});
 
   @override
   _HomeState createState() => _HomeState();

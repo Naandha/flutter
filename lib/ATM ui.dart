@@ -1,133 +1,113 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MaterialApp(
+    home: atmcardui(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
+class atmcardui extends StatefulWidget {
+  const atmcardui({super.key});
+
+  @override
+  State<atmcardui> createState() => _atmcarduiState();
+}
+
+class _atmcarduiState extends State<atmcardui> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text('Card Example')),
-        backgroundColor: Colors.deepOrangeAccent,
+    return Scaffold(
         body: Center(
-          child: BankCard(),
-        ),
-      ),
-    );
-  }
-}
+          child: Stack(children: [
+            Container(
+              height: 250,
+              width: 400,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                image: DecorationImage(
+                  image: AssetImage(
+                      "assets/image/atm.jpg"),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Positioned(
+                top: 20,
+                right: 20,
+                child:Text("CSB Bank",style: TextStyle(fontSize: 20,fontStyle: FontStyle.italic,fontWeight: FontWeight.bold,color: Colors.white),)),
+            Positioned(
+              left: 20,
+              top: 90,
+              child: Container(
+                  height: 40,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    image: DecorationImage(
+                      image: AssetImage("assets/image/chip.jpg"),
+                      fit: BoxFit.cover,
+                    ),
+                  )),
+            ),
+            Positioned(
+              right: 20,
+              top: 90,
+              child: Icon(Icons.wifi,color: Colors.white,),
+              // child: Container(
+              //     height: 40,
+              //     width: 50,
+              //     decoration: BoxDecoration(
+              //       borderRadius: BorderRadius.circular(15),
+              //       image: DecorationImage(
+              //         image: AssetImage("assets/images/capsi.jpeg"),
+              //         fit: BoxFit.cover,
+              //       ),
+              //     )),
+            ),
 
-class BankCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 350,
-      height: 220,
-      decoration: BoxDecoration(
-        color: Colors.brown,
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black26,
-            blurRadius: 10,
-            spreadRadius: 2,
-          ),
-        ],
-      ),
-      child: Stack(
-        children: [
-          Positioned(
-            top: 20,
-            left: 20,
-            child: Text(
-              'CSB Bank',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Positioned(
-            top: 50,
-            left: 20,
-            child: Image.asset(
-              'assets/image/4.jpg',
-              width: 50,
-              height: 50,
-            ),
-          ),
-          Positioned(
-            top: 50,
-            right: 20,
-            child: Icon(
-              Icons.atm,
-              color: Colors.white,
-              size: 30,
-            ),
-          ),
-          Positioned(
-            top: 100,
-            left: 20,
-            child: Text(
-              '6522 3200 2345 9876',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                letterSpacing: 2,
-              ),
-            ),
-          ),
-          Positioned(
-            top: 140,
-            left: 20,
-            child: Text(
-              'VALID\nTHRU',
-              style: TextStyle(
-                color: Colors.white54,
-                fontSize: 12,
-                height: 1.5,
-              ),
-            ),
-          ),
-          Positioned(
-            top: 140,
-            left: 80,
-            child: Text(
-              '08/23',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 20,
-            left: 20,
-            child: Text(
-              'VINAYAK HEGDE',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 20,
-            right: 20,
-            child: Text(
-              'RuPay',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+            Positioned(
+                left:180,bottom:40,
+                child: Row(
+                  children: [Column(
+                    children: [
+                      Text("VALID",style: TextStyle(color: Colors.white,fontSize: 8),),
+                      Text("THRU",style: TextStyle(color: Colors.white,fontSize: 8),),
+                    ],
+                  ),
+                    SizedBox(width: 5,),
+                    Text("03/24",style: TextStyle(color: Colors.white,fontSize: 16)),
+                  ],
+                )),
+
+            Positioned(
+                left: 50,
+                top: 130,
+                child: Center(
+                    child: Text(
+                      "6522  3200 2345 9876",
+                      style: TextStyle(color: Colors.white, fontSize: 28),
+                    ))),
+            Positioned(
+                left: 30,
+                bottom: 20,
+                child: Center(
+                    child: Text(
+                      "VINAYAK HEDGE",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                    ))),
+
+            Positioned(
+              bottom: 20,right: 20,
+              child: Text("RuPay",style: TextStyle(
+                color: Colors.white,fontSize: 16,fontWeight: FontWeight.bold,
+              ),),
+            )
+            // child:Image(image: AssetImage("assets/images/rupay.jpeg")) ,
+            //
+            //    )),
+
+          ]),
+        ));
   }
 }

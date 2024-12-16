@@ -149,7 +149,7 @@ class _AssignmentcarouselState extends State<Assignmentcarousel> {
                         initialPage: 0,
                         enableInfiniteScroll: true,
                         reverse: false,
-                        autoPlay: tr ue,
+                        autoPlay: true,
                         autoPlayInterval: Duration(seconds: 2),
                         autoPlayAnimationDuration: Duration(milliseconds: 800),
                         autoPlayCurve: Curves.fastOutSlowIn,

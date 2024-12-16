@@ -6,7 +6,6 @@ void main() {
   ));
 }
 
-
 class navi extends StatelessWidget{
   @override
   Widget build(BuildContext context) {

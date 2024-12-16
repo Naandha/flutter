@@ -9,9 +9,6 @@ void main(){
 }
 
 
-
-
-
 class register extends StatefulWidget {
   @override
   _registerState createState() => _registerState();
